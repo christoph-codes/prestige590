@@ -30,7 +30,7 @@ export default function HeroSection() {
       </nav>
 
       {/* Hero */}
-      <div className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden -mt-[64px]">
+      <div className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden -mt-16">
         {/* Background image */}
         <div className="absolute inset-0 z-0">
           <Image
