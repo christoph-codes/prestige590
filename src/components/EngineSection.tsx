@@ -19,8 +19,8 @@ export default function EngineSection() {
         {/* Image */}
         <AnimateOnScroll direction="left" className="relative min-h-[400px] lg:min-h-full">
           <Image
-            src="https://images.unsplash.com/photo-1540946485063-a40da27545f8?w=960&q=85"
-            alt="Prestige 590 yacht engines and hull"
+            src="/gallery/2023-prestige-590-power-9931520-20250902140553515-1.webp"
+            alt="Prestige 590 aerial view underway at speed"
             fill
             className="object-cover"
             sizes="(max-width: 1024px) 100vw, 50vw"

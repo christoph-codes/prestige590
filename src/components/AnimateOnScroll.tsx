@@ -3,12 +3,16 @@
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 
-interface AnimateOnScrollProps
-  extends Omit<React.ComponentPropsWithoutRef<"div">, "children"> {
+interface AnimateOnScrollProps {
   children: React.ReactNode;
   className?: string;
   delay?: number;
   direction?: "up" | "left" | "right";
+  onClick?: React.MouseEventHandler<HTMLDivElement>;
+  onKeyDown?: React.KeyboardEventHandler<HTMLDivElement>;
+  role?: React.AriaRole;
+  tabIndex?: number;
+  "aria-label"?: string;
 }
 
 export default function AnimateOnScroll({
