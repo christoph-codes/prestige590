@@ -8,10 +8,18 @@ Built with [Next.js](https://nextjs.org), TypeScript, Tailwind CSS v4, Framer Mo
 
 ```bash
 npm install
+cp .env.example .env.local
 npm run dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) to view the site.
+
+Set `NEXT_PUBLIC_SITE_URL` to your production domain so canonical tags,
+Open Graph URLs, `robots.txt`, and `sitemap.xml` all resolve correctly after
+deployment.
+
+Set `NEXT_PUBLIC_GTM_ID` to your Google Tag Manager container ID, such as
+`GTM-XXXXXXX`, to enable GTM on the site.
 
 ## Deploy
 

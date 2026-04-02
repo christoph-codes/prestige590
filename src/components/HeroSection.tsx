@@ -30,12 +30,12 @@ export default function HeroSection() {
       </nav>
 
       {/* Hero */}
-      <div className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden -mt-[64px]">
+      <div className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden -mt-16">
         {/* Background image */}
         <div className="absolute inset-0 z-0">
           <Image
-            src="https://images.unsplash.com/photo-1567899378494-47b22a2ae96a?w=1920&q=85"
-            alt="2023 Prestige 590 Flybridge aerial view"
+            src="/gallery/2023-prestige-590-power-9931520-20250902140541623-1.webp"
+            alt="2023 Prestige 590 Flybridge underway at sea"
             fill
             priority
             className="object-cover"
@@ -45,7 +45,7 @@ export default function HeroSection() {
             className="absolute inset-0"
             style={{
               background:
-                "linear-gradient(to bottom, rgba(5,9,26,0.7) 0%, rgba(5,9,26,0.4) 50%, rgba(5,9,26,0.85) 100%)",
+                "linear-gradient(to bottom, rgba(5,9,26,0.85) 0%, rgba(5,9,26,0.6) 50%, rgba(5,9,26,0.88) 100%)",
             }}
           />
         </div>
@@ -76,6 +76,15 @@ export default function HeroSection() {
             Flybridge
           </motion.h1>
 
+          <motion.p
+            {...fadeUp(0.5)}
+            className="max-w-3xl text-base md:text-xl leading-relaxed text-[#d5dce7] mb-8"
+          >
+            Prestige 590 for sale in Marina Del Rey with direct pricing, full
+            specs, recent photography, video tour access, and private showing
+            availability for qualified buyers.
+          </motion.p>
+
           {/* Price */}
           <motion.p
             {...fadeUp(0.55)}
@@ -99,25 +108,32 @@ export default function HeroSection() {
             {...fadeUp(0.7)}
             className="flex flex-wrap justify-center gap-3 mb-10"
           >
-            {["Only 140 Hours", "Warranty Through 2026", "LLC Owned", "1,200 HP"].map(
-              (badge) => (
-                <span
-                  key={badge}
-                  className="px-4 py-1.5 text-xs font-semibold tracking-widest uppercase border border-[#c9a84c] text-[#c9a84c] rounded-full"
-                >
-                  {badge}
-                </span>
-              )
-            )}
+            {[
+              "Only 140 Hours",
+              "Warranty Through 2026",
+              "LLC Owned",
+              "1,200 HP",
+            ].map((badge) => (
+              <span
+                key={badge}
+                className="px-4 py-1.5 text-xs font-semibold tracking-widest uppercase border border-[#c9a84c] text-[#c9a84c] rounded-full"
+              >
+                {badge}
+              </span>
+            ))}
           </motion.div>
 
           {/* CTA Buttons */}
-          <motion.div
-            {...fadeUp(0.8)}
-            className="flex justify-center"
-          >
+          <motion.div {...fadeUp(0.8)} className="flex justify-center">
             <PhoneButton variant="primary" size="lg" />
           </motion.div>
+
+          <motion.p
+            {...fadeUp(0.88)}
+            className="mt-5 text-sm tracking-wide text-[#8892a4]"
+          >
+            View pricing, specs, and showing details today.
+          </motion.p>
         </div>
 
         {/* Scroll indicator */}

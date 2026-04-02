@@ -3,39 +3,47 @@ import type { LucideIcon } from "lucide-react";
 
 export const PHONE_NUMBER = "(702) 604-6133";
 export const PHONE_HREF = "tel:+17026046133";
-export const CTA_LABEL = "Call to Inquire";
+export const CTA_LABEL = "Call for Pricing";
 export const PRICE = "$1,790,000";
 export const BOAT_TITLE = "2023 Prestige 590 Flybridge";
 export const LOCATION = "Marina Del Rey, CA";
 
 export const GALLERY_IMAGES = [
   {
-    src: "https://images.unsplash.com/photo-1567899378494-47b22a2ae96a?w=1920&q=85",
-    alt: "2023 Prestige 590 Flybridge aerial view",
+    src: "/gallery/2023-prestige-590-power-9931520-20250902140550118-3.webp",
+    alt: "Prestige 590 aerial top-down view underway",
   },
   {
-    src: "https://images.unsplash.com/photo-1540946485063-a40da27545f8?w=960&q=85",
-    alt: "Prestige 590 side profile on water",
+    src: "/gallery/2023-prestige-590-power-9931520-20250902140553515-1.webp",
+    alt: "Prestige 590 side profile cruising at sea",
   },
   {
-    src: "https://images.unsplash.com/photo-1605281317010-fe5ffe798166?w=960&q=85",
-    alt: "Luxury yacht cruising at sea",
+    src: "/gallery/2023-prestige-590-power-9931520-20250902140554385-2.webp",
+    alt: "Prestige 590 master cabin wardrobe and storage",
   },
   {
-    src: "https://images.unsplash.com/photo-1648551307887-0d700b4d7e16?w=640&q=85",
-    alt: "Yacht deck and seating area",
+    src: "/gallery/2023-prestige-590-power-9931520-20250902140836695-1.webp",
+    alt: "Prestige 590 master stateroom with en-suite",
   },
   {
-    src: "https://images.unsplash.com/photo-1572373688680-21e3a7cb51b2?w=640&q=85",
-    alt: "Yacht interior living space",
+    src: "/gallery/2023-prestige-590-power-9931520-20250902140840344-2.webp",
+    alt: "Prestige 590 flybridge helm and salon interior",
   },
   {
-    src: "https://images.unsplash.com/photo-1616680214084-22670b2cc7f1?w=640&q=85",
-    alt: "Yacht helm station and navigation",
+    src: "/gallery/2023-prestige-590-power-9931520-20250902141002664-3.webp",
+    alt: "Prestige 590 exterior deck and seating area",
   },
   {
-    src: "https://images.unsplash.com/photo-1565008576549-57569a49d7b8?w=640&q=85",
-    alt: "Luxury yacht at sunset marina",
+    src: "/gallery/2023-prestige-590-power-9931520-20250902141009637-2.webp",
+    alt: "Prestige 590 main salon and living space",
+  },
+  {
+    src: "/gallery/2023-prestige-590-power-9931520-20250902141010759-4.webp",
+    alt: "Prestige 590 cockpit and aft deck",
+  },
+  {
+    src: "/gallery/2023-prestige-590-power-9931520-20250902141211635-4.webp",
+    alt: "Prestige 590 bow and foredeck view",
   },
 ];
 
