@@ -1,5 +1,6 @@
 import HeroSection from "@/components/HeroSection";
 import HighlightsBar from "@/components/HighlightsBar";
+import VideoSection from "@/components/VideoSection";
 import GallerySection from "@/components/GallerySection";
 import OverviewSection from "@/components/OverviewSection";
 import SpecificationsSection from "@/components/SpecificationsSection";
@@ -14,6 +15,7 @@ export default function Home() {
     <main>
       <HeroSection />
       <HighlightsBar />
+      <VideoSection />
       <GallerySection />
       <OverviewSection />
       <SpecificationsSection />
