@@ -8,16 +8,6 @@ const nextConfig: NextConfig = {
         hostname: "images.unsplash.com",
         pathname: "/**",
       },
-      {
-        protocol: "https",
-        hostname: "github.com",
-        pathname: "/user-attachments/assets/**",
-      },
-      {
-        protocol: "https",
-        hostname: "private-user-images.githubusercontent.com",
-        pathname: "/**",
-      },
     ],
   },
 };

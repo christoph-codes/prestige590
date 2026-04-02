@@ -3,7 +3,8 @@
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 
-interface AnimateOnScrollProps {
+interface AnimateOnScrollProps
+  extends Omit<React.ComponentPropsWithoutRef<"div">, "children"> {
   children: React.ReactNode;
   className?: string;
   delay?: number;
@@ -15,6 +16,7 @@ export default function AnimateOnScroll({
   className,
   delay = 0,
   direction = "up",
+  ...divProps
 }: AnimateOnScrollProps) {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-50px" });
@@ -30,6 +32,7 @@ export default function AnimateOnScroll({
     <motion.div
       ref={ref}
       className={className}
+      {...divProps}
       initial={initial}
       animate={isInView ? { opacity: 1, y: 0, x: 0 } : initial}
       transition={{

@@ -21,8 +21,20 @@ export default function GallerySection() {
 
   const closeModal = useCallback(() => setModalOpen(false), []);
 
+  const onGalleryTileKeyDown = useCallback(
+    (e: React.KeyboardEvent<HTMLElement>, idx: number) => {
+      if (e.key === "Enter" || e.key === " ") {
+        e.preventDefault();
+        openModal(idx);
+      }
+    },
+    [openModal],
+  );
+
   const prev = useCallback(() => {
-    setActiveIndex((i) => (i - 1 + GALLERY_IMAGES.length) % GALLERY_IMAGES.length);
+    setActiveIndex(
+      (i) => (i - 1 + GALLERY_IMAGES.length) % GALLERY_IMAGES.length,
+    );
   }, []);
 
   const next = useCallback(() => {
@@ -57,9 +69,13 @@ export default function GallerySection() {
   useEffect(() => {
     if (!modalOpen) return;
     const onKey = (e: KeyboardEvent) => {
-      if (e.key === "ArrowLeft") { e.preventDefault(); prev(); }
-      else if (e.key === "ArrowRight") { e.preventDefault(); next(); }
-      else if (e.key === "Escape") closeModal();
+      if (e.key === "ArrowLeft") {
+        e.preventDefault();
+        prev();
+      } else if (e.key === "ArrowRight") {
+        e.preventDefault();
+        next();
+      } else if (e.key === "Escape") closeModal();
     };
     window.addEventListener("keydown", onKey);
     return () => window.removeEventListener("keydown", onKey);
@@ -84,9 +100,16 @@ export default function GallerySection() {
         </AnimateOnScroll>
 
         {/* Desktop Grid */}
-        <div className="hidden md:grid grid-cols-4 grid-rows-2 gap-3 h-[580px]">
+        <div className="hidden md:grid grid-cols-4 grid-rows-2 gap-3 h-145">
           {/* Large featured image */}
-          <AnimateOnScroll className="col-span-2 row-span-2 relative overflow-hidden rounded-lg cursor-pointer group">
+          <AnimateOnScroll
+            className="col-span-2 row-span-2 relative overflow-hidden rounded-lg cursor-pointer group"
+            onClick={() => openModal(0)}
+            onKeyDown={(e) => onGalleryTileKeyDown(e, 0)}
+            role="button"
+            tabIndex={0}
+            aria-label={`Open image 1: ${GALLERY_IMAGES[0].alt}`}
+          >
             <Image
               src={GALLERY_IMAGES[0].src}
               alt={GALLERY_IMAGES[0].alt}
@@ -94,34 +117,58 @@ export default function GallerySection() {
               className="object-cover transition-transform duration-700 group-hover:scale-[1.02]"
               sizes="(max-width: 768px) 100vw, 50vw"
             />
-            <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-300" onClick={() => openModal(0)} />
+            <div className="pointer-events-none absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-300" />
           </AnimateOnScroll>
 
           {/* Side images row 1 */}
           {[1, 2].map((idx) => (
-            <AnimateOnScroll key={idx} delay={idx * 0.1} className="relative overflow-hidden rounded-lg cursor-pointer group">
+            <AnimateOnScroll
+              key={idx}
+              delay={idx * 0.1}
+              className="relative overflow-hidden rounded-lg cursor-pointer group"
+              onClick={() => openModal(idx)}
+              onKeyDown={(e) => onGalleryTileKeyDown(e, idx)}
+              role="button"
+              tabIndex={0}
+              aria-label={`Open image ${idx + 1}: ${GALLERY_IMAGES[idx].alt}`}
+            >
               <Image
                 src={GALLERY_IMAGES[idx].src}
                 alt={GALLERY_IMAGES[idx].alt}
                 fill
-                className="object-cover transition-transform duration-700 group-hover:scale-[1.02]"
+                className="object-cover transition-transform duration-700 group-hover:scale-[1.02] w-auto"
                 sizes="25vw"
               />
-              <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-300" onClick={() => openModal(idx)} />
+              <div
+                className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-300"
+                onClick={() => openModal(idx)}
+              />
             </AnimateOnScroll>
           ))}
 
           {/* Bottom row small images */}
           {[3, 4, 5].map((idx) => (
-            <AnimateOnScroll key={idx} delay={idx * 0.08} className="relative overflow-hidden rounded-lg cursor-pointer group">
+            <AnimateOnScroll
+              key={idx}
+              delay={idx * 0.08}
+              className="relative overflow-hidden rounded-lg cursor-pointer group"
+              onClick={() => openModal(idx)}
+              onKeyDown={(e) => onGalleryTileKeyDown(e, idx)}
+              role="button"
+              tabIndex={0}
+              aria-label={`Open image ${idx + 1}: ${GALLERY_IMAGES[idx].alt}`}
+            >
               <Image
                 src={GALLERY_IMAGES[idx].src}
                 alt={GALLERY_IMAGES[idx].alt}
                 fill
-                className="object-cover transition-transform duration-700 group-hover:scale-[1.02]"
+                className="cursor-pointer object-cover transition-transform duration-700 group-hover:scale-[1.02]"
                 sizes="25vw"
               />
-              <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-300" onClick={() => openModal(idx)} />
+              <div
+                className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-300"
+                onClick={() => openModal(idx)}
+              />
             </AnimateOnScroll>
           ))}
         </div>
@@ -129,7 +176,16 @@ export default function GallerySection() {
         {/* Mobile stack */}
         <div className="md:hidden flex flex-col gap-3">
           {GALLERY_IMAGES.slice(0, 5).map((img, idx) => (
-            <AnimateOnScroll key={idx} delay={idx * 0.08} className="relative aspect-video overflow-hidden rounded-lg cursor-pointer group">
+            <AnimateOnScroll
+              key={idx}
+              delay={idx * 0.08}
+              className="relative aspect-video overflow-hidden rounded-lg cursor-pointer group"
+              onClick={() => openModal(idx)}
+              onKeyDown={(e) => onGalleryTileKeyDown(e, idx)}
+              role="button"
+              tabIndex={0}
+              aria-label={`Open image ${idx + 1}: ${img.alt}`}
+            >
               <Image
                 src={img.src}
                 alt={img.alt}
@@ -137,7 +193,10 @@ export default function GallerySection() {
                 className="object-cover transition-transform duration-700 group-hover:scale-[1.02]"
                 sizes="100vw"
               />
-              <div className="absolute inset-0" onClick={() => openModal(idx)} />
+              <div
+                className="absolute inset-0"
+                onClick={() => openModal(idx)}
+              />
             </AnimateOnScroll>
           ))}
         </div>
@@ -239,7 +298,9 @@ export default function GallerySection() {
               {GALLERY_IMAGES.map((img, idx) => (
                 <button
                   key={idx}
-                  ref={(el) => { thumbnailRefs.current[idx] = el; }}
+                  ref={(el) => {
+                    thumbnailRefs.current[idx] = el;
+                  }}
                   role="option"
                   aria-selected={activeIndex === idx}
                   aria-label={`View image ${idx + 1}: ${img.alt}`}
