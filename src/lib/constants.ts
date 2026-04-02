@@ -10,32 +10,40 @@ export const LOCATION = "Marina Del Rey, CA";
 
 export const GALLERY_IMAGES = [
   {
-    src: "https://images.unsplash.com/photo-1567899378494-47b22a2ae96a?w=1920&q=85",
-    alt: "2023 Prestige 590 Flybridge aerial view",
+    src: "https://github.com/user-attachments/assets/4e9b014e-a1d8-4831-8f95-ae2abbec2ad2",
+    alt: "Prestige 590 aerial top-down view underway",
   },
   {
-    src: "https://images.unsplash.com/photo-1540946485063-a40da27545f8?w=960&q=85",
-    alt: "Prestige 590 side profile on water",
+    src: "https://github.com/user-attachments/assets/5b6bac6b-7770-4798-aa24-0f2b7ac52086",
+    alt: "Prestige 590 side profile cruising at sea",
   },
   {
-    src: "https://images.unsplash.com/photo-1605281317010-fe5ffe798166?w=960&q=85",
-    alt: "Luxury yacht cruising at sea",
+    src: "https://github.com/user-attachments/assets/74aa4c9b-2691-4e85-933a-847e6155f531",
+    alt: "Prestige 590 master cabin wardrobe and storage",
   },
   {
-    src: "https://images.unsplash.com/photo-1648551307887-0d700b4d7e16?w=640&q=85",
-    alt: "Yacht deck and seating area",
+    src: "https://github.com/user-attachments/assets/62131340-e94b-4c41-82ad-5bba5ffed468",
+    alt: "Prestige 590 master stateroom with en-suite",
   },
   {
-    src: "https://images.unsplash.com/photo-1572373688680-21e3a7cb51b2?w=640&q=85",
-    alt: "Yacht interior living space",
+    src: "https://github.com/user-attachments/assets/9d4d531d-3d27-44eb-a1e0-5624cd683618",
+    alt: "Prestige 590 flybridge helm and salon interior",
   },
   {
-    src: "https://images.unsplash.com/photo-1616680214084-22670b2cc7f1?w=640&q=85",
-    alt: "Yacht helm station and navigation",
+    src: "https://github.com/user-attachments/assets/55dfbe50-acbd-44c1-8ce3-78f051ebdc3e",
+    alt: "Prestige 590 exterior deck and seating area",
   },
   {
-    src: "https://images.unsplash.com/photo-1565008576549-57569a49d7b8?w=640&q=85",
-    alt: "Luxury yacht at sunset marina",
+    src: "https://github.com/user-attachments/assets/b5149ce3-65e9-46ee-bd28-30137a091052",
+    alt: "Prestige 590 main salon and living space",
+  },
+  {
+    src: "https://github.com/user-attachments/assets/61896ca5-df90-4949-9c71-2843231f9bba",
+    alt: "Prestige 590 cockpit and aft deck",
+  },
+  {
+    src: "https://github.com/user-attachments/assets/ade485b2-65fc-4c62-a635-d976810bb938",
+    alt: "Prestige 590 bow and foredeck view",
   },
 ];
 
