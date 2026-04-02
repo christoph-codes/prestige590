@@ -18,6 +18,9 @@ Set `NEXT_PUBLIC_SITE_URL` to your production domain so canonical tags,
 Open Graph URLs, `robots.txt`, and `sitemap.xml` all resolve correctly after
 deployment.
 
+Set `NEXT_PUBLIC_GTM_ID` to your Google Tag Manager container ID, such as
+`GTM-XXXXXXX`, to enable GTM on the site.
+
 ## Deploy
 
 Click **Deploy** in Vercel or push to the linked GitHub repository — Vercel will auto-detect the Next.js project and deploy it.

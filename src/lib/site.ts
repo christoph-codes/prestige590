@@ -50,3 +50,13 @@ export function getSiteUrl(): string {
 
   return envUrl.endsWith("/") ? envUrl.slice(0, -1) : envUrl;
 }
+
+export function getGtmId(): string | null {
+  const gtmId = process.env.NEXT_PUBLIC_GTM_ID?.trim();
+
+  if (!gtmId) {
+    return null;
+  }
+
+  return gtmId;
+}
