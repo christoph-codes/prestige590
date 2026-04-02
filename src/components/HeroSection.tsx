@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import { MapPin, ChevronDown } from "lucide-react";
 import PhoneButton from "./PhoneButton";
-import { BOAT_TITLE, LOCATION, PHONE_HREF, PHONE_NUMBER, PRICE } from "@/lib/constants";
+import { BOAT_TITLE, LOCATION, PRICE } from "@/lib/constants";
 
 const fadeUp = (delay: number) => ({
   initial: { opacity: 0, y: 30 },
@@ -114,20 +114,9 @@ export default function HeroSection() {
           {/* CTA Buttons */}
           <motion.div
             {...fadeUp(0.8)}
-            className="flex flex-col sm:flex-row gap-4 justify-center"
+            className="flex justify-center"
           >
-            <a
-              href={PHONE_HREF}
-              className="inline-flex items-center justify-center gap-2 px-8 py-4 text-base font-semibold rounded-full bg-[#c9a84c] text-[#05091a] hover:bg-[#e8d5a3] transition-all duration-300 shadow-lg shadow-[#c9a84c]/25 tracking-wide"
-            >
-              Schedule Showing · {PHONE_NUMBER}
-            </a>
-            <a
-              href="#specs"
-              className="inline-flex items-center justify-center gap-2 px-8 py-4 text-base font-semibold rounded-full border border-[#c9a84c] text-[#c9a84c] hover:bg-[#c9a84c] hover:text-[#05091a] transition-all duration-300 tracking-wide"
-            >
-              View Specs
-            </a>
+            <PhoneButton variant="primary" size="lg" />
           </motion.div>
         </div>
 

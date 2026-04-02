@@ -4,7 +4,7 @@ import "./globals.css";
 export const metadata: Metadata = {
   title: "2023 Prestige 590 Flybridge | Marina Del Rey, CA",
   description:
-    "Exclusively listed 2023 Prestige 590 Flybridge for sale at $1,790,000 in Marina Del Rey, CA. Only 140 hours, factory warranty through 2026, LLC owned. Twin Cummins 1,200 HP. Call (310) 555-0147.",
+    "Exclusively listed 2023 Prestige 590 Flybridge for sale at $1,790,000 in Marina Del Rey, CA. Only 140 hours, factory warranty through 2026, LLC owned. Twin Cummins 1,200 HP. Call (702) 604-6133.",
 };
 
 export default function RootLayout({

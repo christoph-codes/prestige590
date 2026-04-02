@@ -1,5 +1,5 @@
 import AnimateOnScroll from "./AnimateOnScroll";
-import { PHONE_HREF } from "@/lib/constants";
+import PhoneButton from "./PhoneButton";
 
 export default function CalloutSection() {
   return (
@@ -44,12 +44,7 @@ export default function CalloutSection() {
         </AnimateOnScroll>
 
         <AnimateOnScroll delay={0.4}>
-          <a
-            href={PHONE_HREF}
-            className="inline-flex items-center justify-center gap-3 px-10 py-5 text-lg font-semibold rounded-full bg-[#c9a84c] text-[#05091a] hover:bg-[#e8d5a3] transition-all duration-300 shadow-xl shadow-[#c9a84c]/20 tracking-wide"
-          >
-            Request Private Showing
-          </a>
+          <PhoneButton variant="primary" size="lg" />
         </AnimateOnScroll>
       </div>
     </section>
