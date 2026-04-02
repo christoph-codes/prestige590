@@ -148,7 +148,7 @@ export default function GallerySection() {
         <AnimateOnScroll className="text-center mt-10" delay={0.3}>
           <button
             onClick={() => openModal(0)}
-            className="inline-flex items-center gap-2 px-8 py-3 border border-[#c9a84c] text-[#c9a84c] text-sm font-semibold tracking-widest uppercase rounded-full hover:bg-[#c9a84c] hover:text-[#05091a] transition-all duration-300"
+            className="inline-flex items-center gap-2 px-8 py-3 border border-[#c9a84c] text-[#c9a84c] text-sm font-semibold tracking-widest uppercase rounded-full hover:bg-[#c9a84c] hover:text-[#05091a] transition-all duration-300 cursor-pointer"
           >
             View Full Gallery
           </button>
@@ -177,7 +177,7 @@ export default function GallerySection() {
               ref={closeButtonRef}
               onClick={closeModal}
               aria-label="Close gallery"
-              className="text-[#c9a84c] hover:text-white transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#c9a84c] rounded"
+              className="text-[#c9a84c] hover:text-white transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#c9a84c] rounded cursor-pointer"
             >
               <X className="w-7 h-7" />
             </button>
@@ -192,7 +192,7 @@ export default function GallerySection() {
             <button
               onClick={prev}
               aria-label="Previous image"
-              className="absolute left-2 sm:left-4 z-10 p-2 text-[#c9a84c] hover:text-white transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#c9a84c] rounded-full"
+              className="absolute left-2 sm:left-4 z-10 p-2 text-[#c9a84c] hover:text-white transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#c9a84c] rounded-full cursor-pointer"
             >
               <ChevronLeft className="w-9 h-9" />
             </button>
@@ -214,7 +214,7 @@ export default function GallerySection() {
             <button
               onClick={next}
               aria-label="Next image"
-              className="absolute right-2 sm:right-4 z-10 p-2 text-[#c9a84c] hover:text-white transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#c9a84c] rounded-full"
+              className="absolute right-2 sm:right-4 z-10 p-2 text-[#c9a84c] hover:text-white transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#c9a84c] rounded-full cursor-pointer"
             >
               <ChevronRight className="w-9 h-9" />
             </button>
@@ -247,7 +247,7 @@ export default function GallerySection() {
                   aria-selected={activeIndex === idx}
                   aria-label={`View image ${idx + 1}: ${img.alt}`}
                   onClick={() => setActiveIndex(idx)}
-                  className={`relative shrink-0 w-16 h-12 sm:w-20 sm:h-14 overflow-hidden rounded transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#c9a84c] ${
+                  className={`relative shrink-0 w-16 h-12 sm:w-20 sm:h-14 overflow-hidden rounded transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#c9a84c] cursor-pointer ${
                     activeIndex === idx
                       ? "ring-2 ring-[#c9a84c] opacity-100 scale-105"
                       : "ring-1 ring-white/20 opacity-50 hover:opacity-80"
