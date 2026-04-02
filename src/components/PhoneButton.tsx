@@ -1,7 +1,7 @@
 "use client";
 
 import { Phone } from "lucide-react";
-import { PHONE_NUMBER, PHONE_HREF } from "@/lib/constants";
+import { PHONE_NUMBER, PHONE_HREF, CTA_LABEL } from "@/lib/constants";
 import { cn } from "@/lib/utils";
 
 interface PhoneButtonProps {
@@ -41,7 +41,7 @@ export default function PhoneButton({
         className={size === "sm" ? "w-3.5 h-3.5" : size === "lg" ? "w-5 h-5" : "w-4 h-4"}
         strokeWidth={2}
       />
-      <span>{PHONE_NUMBER}</span>
+      <span>{CTA_LABEL} · {PHONE_NUMBER}</span>
     </a>
   );
 }
