@@ -1,8 +1,8 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect, useRef, useCallback } from "react";
 import Image from "next/image";
-import { X } from "lucide-react";
+import { X, ChevronLeft, ChevronRight } from "lucide-react";
 import AnimateOnScroll from "./AnimateOnScroll";
 import SectionWrapper from "./SectionWrapper";
 import { GALLERY_IMAGES } from "@/lib/constants";
@@ -10,6 +10,62 @@ import { GALLERY_IMAGES } from "@/lib/constants";
 export default function GallerySection() {
   const [modalOpen, setModalOpen] = useState(false);
   const [activeIndex, setActiveIndex] = useState(0);
+
+  const closeButtonRef = useRef<HTMLButtonElement>(null);
+  const thumbnailRefs = useRef<(HTMLButtonElement | null)[]>([]);
+
+  const openModal = useCallback((idx: number) => {
+    setActiveIndex(idx);
+    setModalOpen(true);
+  }, []);
+
+  const closeModal = useCallback(() => setModalOpen(false), []);
+
+  const prev = useCallback(() => {
+    setActiveIndex((i) => (i - 1 + GALLERY_IMAGES.length) % GALLERY_IMAGES.length);
+  }, []);
+
+  const next = useCallback(() => {
+    setActiveIndex((i) => (i + 1) % GALLERY_IMAGES.length);
+  }, []);
+
+  // Focus close button when modal opens; restore scroll when it closes
+  useEffect(() => {
+    if (modalOpen) {
+      document.body.style.overflow = "hidden";
+      closeButtonRef.current?.focus();
+    } else {
+      document.body.style.overflow = "";
+    }
+    return () => {
+      if (modalOpen) document.body.style.overflow = "";
+    };
+  }, [modalOpen]);
+
+  // Scroll active thumbnail into view
+  useEffect(() => {
+    if (modalOpen) {
+      thumbnailRefs.current[activeIndex]?.scrollIntoView({
+        behavior: "smooth",
+        block: "nearest",
+        inline: "center",
+      });
+    }
+  }, [activeIndex, modalOpen]);
+
+  // Keyboard navigation
+  useEffect(() => {
+    if (!modalOpen) return;
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "ArrowLeft") { e.preventDefault(); prev(); }
+      else if (e.key === "ArrowRight") { e.preventDefault(); next(); }
+      else if (e.key === "Escape") closeModal();
+    };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [modalOpen, prev, next, closeModal]);
+
+  const activeImage = GALLERY_IMAGES[activeIndex];
 
   return (
     <>
@@ -37,7 +93,7 @@ export default function GallerySection() {
               fill
               className="object-cover transition-transform duration-700 group-hover:scale-[1.02]"
               sizes="(max-width: 768px) 100vw, 50vw"
-              onClick={() => { setActiveIndex(0); setModalOpen(true); }}
+              onClick={() => openModal(0)}
             />
             <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-300" />
           </AnimateOnScroll>
@@ -51,7 +107,7 @@ export default function GallerySection() {
                 fill
                 className="object-cover transition-transform duration-700 group-hover:scale-[1.02]"
                 sizes="25vw"
-                onClick={() => { setActiveIndex(idx); setModalOpen(true); }}
+                onClick={() => openModal(idx)}
               />
               <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-300" />
             </AnimateOnScroll>
@@ -66,7 +122,7 @@ export default function GallerySection() {
                 fill
                 className="object-cover transition-transform duration-700 group-hover:scale-[1.02]"
                 sizes="25vw"
-                onClick={() => { setActiveIndex(idx); setModalOpen(true); }}
+                onClick={() => openModal(idx)}
               />
               <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-300" />
             </AnimateOnScroll>
@@ -83,7 +139,7 @@ export default function GallerySection() {
                 fill
                 className="object-cover transition-transform duration-700 group-hover:scale-[1.02]"
                 sizes="100vw"
-                onClick={() => { setActiveIndex(idx); setModalOpen(true); }}
+                onClick={() => openModal(idx)}
               />
             </AnimateOnScroll>
           ))}
@@ -91,7 +147,7 @@ export default function GallerySection() {
 
         <AnimateOnScroll className="text-center mt-10" delay={0.3}>
           <button
-            onClick={() => { setActiveIndex(0); setModalOpen(true); }}
+            onClick={() => openModal(0)}
             className="inline-flex items-center gap-2 px-8 py-3 border border-[#c9a84c] text-[#c9a84c] text-sm font-semibold tracking-widest uppercase rounded-full hover:bg-[#c9a84c] hover:text-[#05091a] transition-all duration-300"
           >
             View Full Gallery
@@ -99,41 +155,112 @@ export default function GallerySection() {
         </AnimateOnScroll>
       </SectionWrapper>
 
-      {/* Modal */}
+      {/* Lightbox modal */}
       {modalOpen && (
         <div
-          className="fixed inset-0 z-50 flex items-center justify-center p-4"
-          style={{ background: "rgba(5,9,26,0.95)" }}
-          onClick={() => setModalOpen(false)}
+          role="dialog"
+          aria-modal="true"
+          aria-label={`Gallery — ${activeImage.alt} (${activeIndex + 1} of ${GALLERY_IMAGES.length})`}
+          className="fixed inset-0 z-50 flex flex-col"
+          style={{ background: "rgba(5,9,26,0.97)" }}
+          onClick={closeModal}
         >
-          <button
-            className="absolute top-6 right-6 text-[#c9a84c] hover:text-white transition-colors"
-            onClick={() => setModalOpen(false)}
-            aria-label="Close gallery"
-          >
-            <X className="w-8 h-8" />
-          </button>
+          {/* Header bar */}
           <div
-            className="w-full max-w-6xl max-h-[90vh] overflow-y-auto"
+            className="flex items-center justify-between px-6 py-4 shrink-0"
             onClick={(e) => e.stopPropagation()}
           >
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+            <p className="text-[#c9a84c] text-sm font-semibold tracking-widest uppercase">
+              {activeIndex + 1} / {GALLERY_IMAGES.length}
+            </p>
+            <button
+              ref={closeButtonRef}
+              onClick={closeModal}
+              aria-label="Close gallery"
+              className="text-[#c9a84c] hover:text-white transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#c9a84c] rounded"
+            >
+              <X className="w-7 h-7" />
+            </button>
+          </div>
+
+          {/* Main image + side arrows */}
+          <div
+            className="relative flex-1 flex items-center justify-center min-h-0 px-14"
+            onClick={(e) => e.stopPropagation()}
+          >
+            {/* Prev */}
+            <button
+              onClick={prev}
+              aria-label="Previous image"
+              className="absolute left-2 sm:left-4 z-10 p-2 text-[#c9a84c] hover:text-white transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#c9a84c] rounded-full"
+            >
+              <ChevronLeft className="w-9 h-9" />
+            </button>
+
+            {/* Active image */}
+            <div className="relative w-full h-full max-w-5xl">
+              <Image
+                key={activeIndex}
+                src={activeImage.src}
+                alt={activeImage.alt}
+                fill
+                className="object-contain"
+                sizes="(max-width: 768px) 100vw, 80vw"
+                priority
+              />
+            </div>
+
+            {/* Next */}
+            <button
+              onClick={next}
+              aria-label="Next image"
+              className="absolute right-2 sm:right-4 z-10 p-2 text-[#c9a84c] hover:text-white transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#c9a84c] rounded-full"
+            >
+              <ChevronRight className="w-9 h-9" />
+            </button>
+          </div>
+
+          {/* Caption */}
+          <div
+            className="text-center px-6 pt-3 pb-2 shrink-0"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <p className="text-[#f5f0e8]/80 text-sm">{activeImage.alt}</p>
+          </div>
+
+          {/* Thumbnail strip */}
+          <div
+            className="shrink-0 px-4 pb-5 pt-2"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <div
+              role="listbox"
+              aria-label="Image thumbnails"
+              className="flex gap-2 overflow-x-auto pb-1 justify-start md:justify-center scroll-smooth"
+              style={{ scrollbarWidth: "none" }}
+            >
               {GALLERY_IMAGES.map((img, idx) => (
-                <div
+                <button
                   key={idx}
-                  className={`relative overflow-hidden rounded-lg cursor-pointer ring-2 transition-all duration-200 ${
-                    activeIndex === idx ? "ring-[#c9a84c]" : "ring-transparent"
-                  } ${idx === 0 ? "md:col-span-2 aspect-video" : "aspect-video"}`}
+                  ref={(el) => { thumbnailRefs.current[idx] = el; }}
+                  role="option"
+                  aria-selected={activeIndex === idx}
+                  aria-label={`View image ${idx + 1}: ${img.alt}`}
                   onClick={() => setActiveIndex(idx)}
+                  className={`relative shrink-0 w-16 h-12 sm:w-20 sm:h-14 overflow-hidden rounded transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#c9a84c] ${
+                    activeIndex === idx
+                      ? "ring-2 ring-[#c9a84c] opacity-100 scale-105"
+                      : "ring-1 ring-white/20 opacity-50 hover:opacity-80"
+                  }`}
                 >
                   <Image
                     src={img.src}
                     alt={img.alt}
                     fill
-                    className="object-cover hover:scale-105 transition-transform duration-500"
-                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                    className="object-cover"
+                    sizes="80px"
                   />
-                </div>
+                </button>
               ))}
             </div>
           </div>
