@@ -93,9 +93,8 @@ export default function GallerySection() {
               fill
               className="object-cover transition-transform duration-700 group-hover:scale-[1.02]"
               sizes="(max-width: 768px) 100vw, 50vw"
-              onClick={() => openModal(0)}
             />
-            <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-300" />
+            <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-300" onClick={() => openModal(0)} />
           </AnimateOnScroll>
 
           {/* Side images row 1 */}
@@ -107,9 +106,8 @@ export default function GallerySection() {
                 fill
                 className="object-cover transition-transform duration-700 group-hover:scale-[1.02]"
                 sizes="25vw"
-                onClick={() => openModal(idx)}
               />
-              <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-300" />
+              <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-300" onClick={() => openModal(idx)} />
             </AnimateOnScroll>
           ))}
 
@@ -122,9 +120,8 @@ export default function GallerySection() {
                 fill
                 className="object-cover transition-transform duration-700 group-hover:scale-[1.02]"
                 sizes="25vw"
-                onClick={() => openModal(idx)}
               />
-              <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-300" />
+              <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-300" onClick={() => openModal(idx)} />
             </AnimateOnScroll>
           ))}
         </div>
@@ -139,8 +136,8 @@ export default function GallerySection() {
                 fill
                 className="object-cover transition-transform duration-700 group-hover:scale-[1.02]"
                 sizes="100vw"
-                onClick={() => openModal(idx)}
               />
+              <div className="absolute inset-0" onClick={() => openModal(idx)} />
             </AnimateOnScroll>
           ))}
         </div>
