@@ -76,6 +76,15 @@ export default function HeroSection() {
             Flybridge
           </motion.h1>
 
+          <motion.p
+            {...fadeUp(0.5)}
+            className="max-w-3xl text-base md:text-xl leading-relaxed text-[#d5dce7] mb-8"
+          >
+            Prestige 590 for sale in Marina Del Rey with direct pricing, full
+            specs, recent photography, video tour access, and private showing
+            availability for qualified buyers.
+          </motion.p>
+
           {/* Price */}
           <motion.p
             {...fadeUp(0.55)}
@@ -118,6 +127,13 @@ export default function HeroSection() {
           <motion.div {...fadeUp(0.8)} className="flex justify-center">
             <PhoneButton variant="primary" size="lg" />
           </motion.div>
+
+          <motion.p
+            {...fadeUp(0.88)}
+            className="mt-5 text-sm tracking-wide text-[#8892a4]"
+          >
+            View pricing, specs, and showing details today.
+          </motion.p>
         </div>
 
         {/* Scroll indicator */}

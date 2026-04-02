@@ -5,8 +5,6 @@
   --foreground: #f5f0e8;
   --gold: #c9a84c;
   --gold-light: #e8d5a3;
-  --font-playfair: "Playfair Display", Georgia, serif;
-  --font-inter: "Inter", system-ui, sans-serif;
 }
 
 @theme inline {
@@ -14,10 +12,8 @@
   --color-foreground: var(--foreground);
   --color-gold: var(--gold);
   --color-gold-light: var(--gold-light);
-  --font-sans: "Inter", system-ui, sans-serif;
-  --font-serif: "Playfair Display", Georgia, serif;
-  --font-inter: "Inter", system-ui, sans-serif;
-  --font-playfair: "Playfair Display", Georgia, serif;
+  --font-sans: var(--font-inter);
+  --font-serif: var(--font-playfair);
 }
 
 html {
@@ -27,7 +23,7 @@ html {
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: "Inter", system-ui, sans-serif;
+  font-family: var(--font-inter), system-ui, sans-serif;
   -webkit-font-smoothing: antialiased;
 }
 

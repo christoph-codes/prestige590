@@ -3,7 +3,7 @@ import type { LucideIcon } from "lucide-react";
 
 export const PHONE_NUMBER = "(702) 604-6133";
 export const PHONE_HREF = "tel:+17026046133";
-export const CTA_LABEL = "Call to Inquire";
+export const CTA_LABEL = "Call for Pricing";
 export const PRICE = "$1,790,000";
 export const BOAT_TITLE = "2023 Prestige 590 Flybridge";
 export const LOCATION = "Marina Del Rey, CA";

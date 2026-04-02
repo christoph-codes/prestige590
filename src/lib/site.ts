@@ -1,0 +1,52 @@
+export const DEFAULT_SITE_URL = "http://localhost:3000";
+
+export const SITE_NAME = "Prestige 590 For Sale";
+export const LISTING_NAME = "2023 Prestige 590 Flybridge";
+export const LISTING_DESCRIPTION =
+  "Explore this 2023 Prestige 590 Flybridge for sale in Marina Del Rey, California with pricing, specifications, photos, video, engine details, and private showing information.";
+
+export const SEO_KEYWORDS = [
+  "prestige 590 for sale",
+  "buy prestige 590",
+  "prestige 590 yacht for sale",
+  "prestige 590 flybridge for sale",
+  "prestige 590 marina del rey",
+  "luxury yachts for sale",
+  "flybridge yacht for sale",
+  "prestige yacht pricing",
+  "prestige 590 specs",
+  "2023 prestige yacht tour",
+];
+
+export const FAQS = [
+  {
+    question: "What is the asking price for this Prestige 590 for sale?",
+    answer:
+      "The current asking price is $1,790,000. Contact the listing representative for current availability, inclusions, and showing details.",
+  },
+  {
+    question: "Where is this 2023 Prestige 590 located?",
+    answer:
+      "The yacht is located in Marina Del Rey, California and is available for private showings by appointment.",
+  },
+  {
+    question: "How much power does the Prestige 590 have?",
+    answer:
+      "This yacht is equipped with twin Cummins diesel engines rated at 600 horsepower each for 1,200 combined horsepower.",
+  },
+  {
+    question: "How many hours are on the yacht?",
+    answer:
+      "The listing highlights only 140 engine hours, making it an attractive late-model option for buyers seeking a lightly used Prestige 590.",
+  },
+];
+
+export function getSiteUrl(): string {
+  const envUrl = process.env.NEXT_PUBLIC_SITE_URL?.trim();
+
+  if (!envUrl) {
+    return DEFAULT_SITE_URL;
+  }
+
+  return envUrl.endsWith("/") ? envUrl.slice(0, -1) : envUrl;
+}

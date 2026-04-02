@@ -12,10 +12,12 @@ export default function ContactSection() {
             className="text-4xl md:text-5xl font-bold text-[#f5f0e8] mb-6"
             style={{ fontFamily: "var(--font-playfair)" }}
           >
-            Arrange a Private Showing
+            Request Pricing &amp; Private Showing
           </h2>
           <p className="text-[#8892a4] leading-relaxed mb-10 text-lg">
-            Available 7 days a week to arrange an exclusive viewing at Marina Del Rey.
+            Speak directly with the listing contact to confirm availability,
+            review specifications, and schedule a private showing in Marina Del
+            Rey.
           </p>
           <PhoneButton variant="primary" size="lg" />
         </AnimateOnScroll>
