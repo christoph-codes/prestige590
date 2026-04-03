@@ -2,8 +2,16 @@ export const DEFAULT_SITE_URL = "http://localhost:3000";
 
 export const SITE_NAME = "Prestige 590 For Sale";
 export const LISTING_NAME = "2023 Prestige 590 Flybridge";
+export const SITE_TITLE = `${SITE_NAME} | Marina Del Rey, CA`;
+export const PAGE_TITLE = "Prestige 590 for Sale";
 export const LISTING_DESCRIPTION =
   "Explore this 2023 Prestige 590 Flybridge for sale in Marina Del Rey, California with pricing, specifications, photos, video, engine details, and private showing information.";
+export const PAGE_DESCRIPTION =
+  "View this 2023 Prestige 590 Flybridge for sale in Marina Del Rey with pricing, specs, photos, video, and direct inquiry information.";
+export const SOCIAL_IMAGE_PATH =
+  "/gallery/2023-prestige-590-power-9931520-20250902140541623-1.webp";
+export const SOCIAL_IMAGE_ALT =
+  "2023 Prestige 590 Flybridge cruising at sea with a luxury listing presentation overlay";
 
 export const SEO_KEYWORDS = [
   "prestige 590 for sale",

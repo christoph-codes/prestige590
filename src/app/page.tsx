@@ -11,28 +11,44 @@ import ContactSection from "@/components/ContactSection";
 import Footer from "@/components/Footer";
 import FAQSection from "@/components/FAQSection";
 import { BOAT_TITLE, LOCATION, PHONE_NUMBER, PRICE } from "@/lib/constants";
-import { FAQS, getSiteUrl, SEO_KEYWORDS } from "@/lib/site";
+import {
+  FAQS,
+  getSiteUrl,
+  LISTING_NAME,
+  PAGE_DESCRIPTION,
+  PAGE_TITLE,
+  SEO_KEYWORDS,
+  SITE_NAME,
+  SOCIAL_IMAGE_ALT,
+  SOCIAL_IMAGE_PATH,
+} from "@/lib/site";
 
 const siteUrl = getSiteUrl();
-const pageTitle = "Prestige 590 for Sale";
-const pageDescription =
-  "View this 2023 Prestige 590 Flybridge for sale in Marina Del Rey with pricing, specs, photos, video, and direct inquiry information.";
 
 export const metadata: Metadata = {
-  title: pageTitle,
-  description: pageDescription,
+  title: PAGE_TITLE,
+  description: PAGE_DESCRIPTION,
   keywords: SEO_KEYWORDS,
   alternates: {
     canonical: "/",
   },
   openGraph: {
-    title: `${pageTitle} | Marina Del Rey, CA`,
-    description: pageDescription,
+    title: `${PAGE_TITLE} | Marina Del Rey, CA`,
+    description: PAGE_DESCRIPTION,
     url: "/",
+    images: [
+      {
+        url: "/opengraph-image.png",
+        width: 1200,
+        height: 630,
+        alt: SOCIAL_IMAGE_ALT,
+      },
+    ],
   },
   twitter: {
-    title: `${pageTitle} | Marina Del Rey, CA`,
-    description: pageDescription,
+    title: `${PAGE_TITLE} | Marina Del Rey, CA`,
+    description: PAGE_DESCRIPTION,
+    images: ["/twitter-image.png"],
   },
 };
 
@@ -44,15 +60,36 @@ export default function Home() {
         "@type": "WebPage",
         "@id": `${siteUrl}/#webpage`,
         url: siteUrl,
-        name: `${pageTitle} | Marina Del Rey, CA`,
-        description: pageDescription,
+        name: `${PAGE_TITLE} | Marina Del Rey, CA`,
+        description: PAGE_DESCRIPTION,
         inLanguage: "en-US",
+        isPartOf: {
+          "@id": `${siteUrl}/#website`,
+        },
+        primaryImageOfPage: {
+          "@id": `${siteUrl}/#primaryimage`,
+        },
+      },
+      {
+        "@type": "WebSite",
+        "@id": `${siteUrl}/#website`,
+        url: siteUrl,
+        name: SITE_NAME,
+        description: PAGE_DESCRIPTION,
+        inLanguage: "en-US",
+      },
+      {
+        "@type": "ImageObject",
+        "@id": `${siteUrl}/#primaryimage`,
+        url: `${siteUrl}${SOCIAL_IMAGE_PATH}`,
+        contentUrl: `${siteUrl}${SOCIAL_IMAGE_PATH}`,
+        description: SOCIAL_IMAGE_ALT,
       },
       {
         "@type": "Product",
         "@id": `${siteUrl}/#product`,
         name: BOAT_TITLE,
-        description: `${pageDescription} Asking price ${PRICE}.`,
+        description: `${PAGE_DESCRIPTION} Asking price ${PRICE}.`,
         brand: {
           "@type": "Brand",
           name: "Prestige",
@@ -60,10 +97,20 @@ export default function Home() {
         model: "590 Flybridge",
         slogan: `Prestige 590 for sale in ${LOCATION}`,
         category: "Luxury Flybridge Yacht",
+        itemCondition: "https://schema.org/UsedCondition",
         image: [
-          `${siteUrl}/gallery/2023-prestige-590-power-9931520-20250902140541623-1.webp`,
+          `${siteUrl}${SOCIAL_IMAGE_PATH}`,
+          `${siteUrl}/opengraph-image.png`,
           `${siteUrl}/gallery/2023-prestige-590-power-9931520-20250902140550118-3.webp`,
+          `${siteUrl}/gallery/2023-prestige-590-power-9931520-20250902140553515-1.webp`,
         ],
+        manufacturer: {
+          "@type": "Organization",
+          name: "Prestige Yachts",
+        },
+        mainEntityOfPage: {
+          "@id": `${siteUrl}/#webpage`,
+        },
         offers: {
           "@type": "Offer",
           priceCurrency: "USD",
@@ -75,7 +122,7 @@ export default function Home() {
       {
         "@type": "Organization",
         "@id": `${siteUrl}/#organization`,
-        name: "Prestige 590 For Sale",
+        name: SITE_NAME,
         url: siteUrl,
         contactPoint: {
           "@type": "ContactPoint",
@@ -84,6 +131,24 @@ export default function Home() {
           areaServed: LOCATION,
           availableLanguage: "en",
         },
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": `${siteUrl}/#breadcrumbs`,
+        itemListElement: [
+          {
+            "@type": "ListItem",
+            position: 1,
+            name: "Home",
+            item: siteUrl,
+          },
+          {
+            "@type": "ListItem",
+            position: 2,
+            name: LISTING_NAME,
+            item: siteUrl,
+          },
+        ],
       },
       {
         "@type": "FAQPage",

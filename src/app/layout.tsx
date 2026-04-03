@@ -6,7 +6,10 @@ import {
   getGtmId,
   getSiteUrl,
   LISTING_DESCRIPTION,
+  SEO_KEYWORDS,
   SITE_NAME,
+  SITE_TITLE,
+  SOCIAL_IMAGE_ALT,
 } from "@/lib/site";
 
 const siteUrl = getSiteUrl();
@@ -25,12 +28,19 @@ const playfair = Playfair_Display({
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: `${SITE_NAME} | Marina Del Rey, CA`,
+    default: SITE_TITLE,
     template: `%s | ${SITE_NAME}`,
   },
   description: LISTING_DESCRIPTION,
   applicationName: SITE_NAME,
   category: "Luxury Yacht Listing",
+  keywords: SEO_KEYWORDS,
+  referrer: "origin-when-cross-origin",
+  formatDetection: {
+    address: true,
+    email: false,
+    telephone: true,
+  },
   alternates: {
     canonical: "/",
   },
@@ -38,22 +48,23 @@ export const metadata: Metadata = {
     type: "website",
     url: "/",
     siteName: SITE_NAME,
-    title: `${SITE_NAME} | Marina Del Rey, CA`,
+    locale: "en_US",
+    title: SITE_TITLE,
     description: LISTING_DESCRIPTION,
     images: [
       {
-        url: "/gallery/2023-prestige-590-power-9931520-20250902140541623-1.webp",
-        width: 1600,
-        height: 900,
-        alt: "2023 Prestige 590 Flybridge underway at sea in Marina Del Rey listing",
+        url: "/opengraph-image.png",
+        width: 1200,
+        height: 630,
+        alt: SOCIAL_IMAGE_ALT,
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: `${SITE_NAME} | Marina Del Rey, CA`,
+    title: SITE_TITLE,
     description: LISTING_DESCRIPTION,
-    images: ["/gallery/2023-prestige-590-power-9931520-20250902140541623-1.webp"],
+    images: ["/twitter-image.png"],
   },
   robots: {
     index: true,
