@@ -114,7 +114,7 @@ export default function GallerySection() {
               src={GALLERY_IMAGES[0].src}
               alt={GALLERY_IMAGES[0].alt}
               fill
-              className="object-cover transition-transform duration-700 group-hover:scale-[1.02]"
+              className="object-cover transition-transform duration-700 group-hover:scale-[1.02] h-auto"
               sizes="(max-width: 768px) 100vw, 50vw"
             />
             <div className="pointer-events-none absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-300" />
@@ -136,7 +136,7 @@ export default function GallerySection() {
                 src={GALLERY_IMAGES[idx].src}
                 alt={GALLERY_IMAGES[idx].alt}
                 fill
-                className="object-cover transition-transform duration-700 group-hover:scale-[1.02] w-auto"
+                className="object-cover h-auto transition-transform duration-700 group-hover:scale-[1.02] w-auto"
                 sizes="25vw"
               />
               <div
@@ -162,7 +162,7 @@ export default function GallerySection() {
                 src={GALLERY_IMAGES[idx].src}
                 alt={GALLERY_IMAGES[idx].alt}
                 fill
-                className="cursor-pointer object-cover transition-transform duration-700 group-hover:scale-[1.02]"
+                className="cursor-pointer object-cover transition-transform duration-700 group-hover:scale-[1.02] h-auto"
                 sizes="25vw"
               />
               <div
@@ -190,7 +190,7 @@ export default function GallerySection() {
                 src={img.src}
                 alt={img.alt}
                 fill
-                className="object-cover transition-transform duration-700 group-hover:scale-[1.02]"
+                className="object-cover h-auto transition-transform duration-700 group-hover:scale-[1.02]"
                 sizes="100vw"
               />
               <div
@@ -260,7 +260,7 @@ export default function GallerySection() {
                 src={activeImage.src}
                 alt={activeImage.alt}
                 fill
-                className="object-contain"
+                className="object-contain h-auto"
                 sizes="(max-width: 768px) 100vw, 80vw"
                 priority
               />
@@ -315,7 +315,7 @@ export default function GallerySection() {
                     src={img.src}
                     alt={img.alt}
                     fill
-                    className="object-cover"
+                    className="object-cover h-auto"
                     sizes="80px"
                   />
                 </button>
