@@ -1,4 +1,9 @@
-import { BOAT_TITLE, LOCATION, PHONE_NUMBER, PHONE_HREF } from "@/lib/constants";
+import {
+  BOAT_TITLE,
+  LOCATION,
+  PHONE_NUMBER,
+  PHONE_HREF,
+} from "@/lib/constants";
 
 export default function Footer() {
   return (
@@ -25,7 +30,8 @@ export default function Footer() {
       <div className="w-24 h-px bg-white/10 mx-auto mb-8" />
 
       <p className="text-xs text-[#8892a4] mb-2">
-        © 2024 Prestige 590. All rights reserved. | Listing subject to prior sale.
+        © {new Date().getFullYear()} Premier Yacht Listings. All rights
+        reserved. | Listing subject to prior sale.
       </p>
       <p className="text-xs text-[#8892a4]/60">
         All specifications are believed to be accurate but are not guaranteed.
