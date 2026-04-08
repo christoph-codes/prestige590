@@ -21,6 +21,7 @@ export default function Footer() {
         {LOCATION}
       </p>
       <a
+        id="cta-call-footer"
         href={PHONE_HREF}
         className="inline-block text-[#c9a84c] font-semibold text-lg hover:text-[#e8d5a3] transition-colors duration-300 mb-8"
       >

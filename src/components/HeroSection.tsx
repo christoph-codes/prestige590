@@ -26,7 +26,7 @@ export default function HeroSection() {
         >
           {BOAT_TITLE}
         </span>
-        <PhoneButton variant="secondary" size="sm" />
+        <PhoneButton variant="secondary" size="sm" ctaId="cta-call-nav" />
       </nav>
 
       {/* Hero */}
@@ -125,7 +125,7 @@ export default function HeroSection() {
 
           {/* CTA Buttons */}
           <motion.div {...fadeUp(0.8)} className="flex justify-center">
-            <PhoneButton variant="primary" size="lg" />
+            <PhoneButton variant="primary" size="lg" ctaId="cta-call-hero" />
           </motion.div>
 
           <motion.p

@@ -19,7 +19,7 @@ export default function ContactSection() {
             review specifications, and schedule a private showing in Marina Del
             Rey.
           </p>
-          <PhoneButton variant="primary" size="lg" />
+          <PhoneButton variant="primary" size="lg" ctaId="cta-call-contact" />
         </AnimateOnScroll>
       </div>
     </SectionWrapper>

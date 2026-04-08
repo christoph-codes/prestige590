@@ -8,12 +8,14 @@ interface PhoneButtonProps {
   variant?: "primary" | "secondary" | "ghost";
   size?: "sm" | "md" | "lg";
   className?: string;
+  ctaId?: string;
 }
 
 export default function PhoneButton({
   variant = "primary",
   size = "md",
   className,
+  ctaId,
 }: PhoneButtonProps) {
   const base =
     "inline-flex items-center gap-2 font-semibold tracking-wide transition-all duration-300 rounded-full cursor-pointer";
@@ -34,6 +36,7 @@ export default function PhoneButton({
 
   return (
     <a
+      id={ctaId}
       href={PHONE_HREF}
       className={cn(base, variants[variant], sizes[size], className)}
     >

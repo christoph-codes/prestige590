@@ -44,7 +44,7 @@ export default function CalloutSection() {
         </AnimateOnScroll>
 
         <AnimateOnScroll delay={0.4}>
-          <PhoneButton variant="primary" size="lg" />
+          <PhoneButton variant="primary" size="lg" ctaId="cta-call-callout" />
         </AnimateOnScroll>
       </div>
     </section>
