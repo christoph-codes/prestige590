@@ -10,7 +10,7 @@ import FeaturesSection from "@/components/FeaturesSection";
 import ContactSection from "@/components/ContactSection";
 import Footer from "@/components/Footer";
 import FAQSection from "@/components/FAQSection";
-import { BOAT_TITLE, LOCATION, PHONE_NUMBER, PRICE } from "@/lib/constants";
+import { BOAT_TITLE, LOCATION, PHONE_NUMBER } from "@/lib/constants";
 import {
   FAQS,
   getSiteUrl,
@@ -89,7 +89,7 @@ export default function Home() {
         "@type": "Product",
         "@id": `${siteUrl}/#product`,
         name: BOAT_TITLE,
-        description: `${PAGE_DESCRIPTION} Asking price ${PRICE}.`,
+        description: PAGE_DESCRIPTION,
         brand: {
           "@type": "Brand",
           name: "Prestige",
@@ -110,13 +110,6 @@ export default function Home() {
         },
         mainEntityOfPage: {
           "@id": `${siteUrl}/#webpage`,
-        },
-        offers: {
-          "@type": "Offer",
-          priceCurrency: "USD",
-          price: PRICE.replace(/[$,]/g, ""),
-          availability: "https://schema.org/InStock",
-          url: siteUrl,
         },
       },
       {
