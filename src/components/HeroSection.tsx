@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import { MapPin, ChevronDown } from "lucide-react";
 import PhoneButton from "./PhoneButton";
-import { BOAT_TITLE, LOCATION, PRICE } from "@/lib/constants";
+import { BOAT_TITLE, LOCATION } from "@/lib/constants";
 
 const fadeUp = (delay: number) => ({
   initial: { opacity: 0, y: 30 },
@@ -80,18 +80,9 @@ export default function HeroSection() {
             {...fadeUp(0.5)}
             className="max-w-3xl text-base md:text-xl leading-relaxed text-[#d5dce7] mb-8"
           >
-            Prestige 590 for sale in Marina Del Rey with direct pricing, full
-            specs, recent photography, video tour access, and private showing
+            Prestige 590 for sale in Marina Del Rey with full specs, recent
+            photography, video tour access, and private showing
             availability for qualified buyers.
-          </motion.p>
-
-          {/* Price */}
-          <motion.p
-            {...fadeUp(0.55)}
-            className="text-3xl md:text-4xl font-semibold text-[#c9a84c] mb-4"
-            style={{ fontFamily: "var(--font-playfair)" }}
-          >
-            {PRICE}
           </motion.p>
 
           {/* Location */}
@@ -132,7 +123,7 @@ export default function HeroSection() {
             {...fadeUp(0.88)}
             className="mt-5 text-sm tracking-wide text-[#8892a4]"
           >
-            View pricing, specs, and showing details today.
+            Request pricing, specs, and showing details today.
           </motion.p>
         </div>
 

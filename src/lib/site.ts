@@ -28,9 +28,9 @@ export const SEO_KEYWORDS = [
 
 export const FAQS = [
   {
-    question: "What is the asking price for this Prestige 590 for sale?",
+    question: "How can I request pricing for this Prestige 590 for sale?",
     answer:
-      "The current asking price is $1,790,000. Contact the listing representative for current availability, inclusions, and showing details.",
+      "Pricing is available on request. Contact the listing representative for current availability, inclusions, and showing details.",
   },
   {
     question: "Where is this 2023 Prestige 590 located?",

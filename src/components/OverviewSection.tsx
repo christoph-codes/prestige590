@@ -40,9 +40,9 @@ export default function OverviewSection() {
           <p className="text-[#8892a4] leading-relaxed mb-10">
             This lightly used Prestige 590 is positioned for buyers comparing
             listings across YachtWorld, Boat Trader, and brokerage sites, but
-            wanting one page with pricing, specs, photography, and direct
-            contact information. With only 140 hours and warranty coverage
-            through 2026, it presents as a compelling turnkey luxury yacht.
+            wanting one page with specs, photography, and direct contact
+            information. With only 140 hours and warranty coverage through
+            2026, it presents as a compelling turnkey luxury yacht.
           </p>
 
           <ul className="space-y-4">

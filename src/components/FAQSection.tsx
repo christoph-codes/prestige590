@@ -18,7 +18,8 @@ export default function FAQSection() {
           </h2>
           <p className="text-[#8892a4] leading-relaxed mt-5 max-w-2xl mx-auto">
             Quick answers for buyers researching a Prestige 590 for sale,
-            including price, location, horsepower, and current condition.
+            including pricing availability, location, horsepower, and current
+            condition.
           </p>
           <div className="w-16 h-px bg-[#c9a84c] mx-auto mt-4" />
         </AnimateOnScroll>
